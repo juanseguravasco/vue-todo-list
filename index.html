@@ -1,31 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue Todo List</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
   </head>
   <body>
-    <div id="app">
-      <h2>Cosas a hacer este año:</h2>
-      <ul v-if="todos.length">
-        <li v-for="(item,index) in todos">
-          <label>
-            <input type="checkbox" v-model="item.done" />
-            <del v-if="item.done"> {{ item.title }} </del>
-            <span v-else> {{ item.title }} </span>
-          </label>
-          <button @click="delTodo(index)">Borrar</button>
-        </li>
-      </ul>
-      <p v-else>No hay tareas que mostrar</p>
-      <input v-model="newTodo" />
-      <button @click="addTodo">Añadir</button>
-      <br />
-      <button @click="delTodos">Borrar toda la lista</button>
-    </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="main.js"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
