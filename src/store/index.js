@@ -10,6 +10,10 @@ export const store = {
     if (this.debug) console.log("fetchTodosAction triggered");
     this.state.todos = await api.fetchTodos();
   },
+  getTodoById(id) {
+    if (this.debug) console.log("getTodoById triggered with id ", id);
+    return this.state.todos.find((todo) => todo.id === id);
+  },
   async addTodoAction(newTodo) {
     if (this.debug) console.log("addTodoAction triggered with ", newTodo);
     const addedTodo = await api.addTodo(newTodo);

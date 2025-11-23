@@ -1,13 +1,17 @@
-<script setup>
-import AddItem from "./components/AddItem.vue";
-import TodoList from "./components/TodoList.vue";
-</script>
-
 <template>
   <div>
-    <h2>Cosas a hacer este año:</h2>
-    <todo-list />
-    <add-item />
+    <header>
+      <nav>
+        <router-link to="/">Inicio</router-link>
+        |
+        <router-link to="/add">Añadir Tarea</router-link>
+        |
+        <router-link to="/about">Acerca de</router-link>
+        |
+      </nav>
+    </header>
+    <h1>Gestión de las cosas a hacer este año:</h1>
+    <router-view></router-view>
   </div>
 </template>
 

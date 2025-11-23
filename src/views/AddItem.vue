@@ -13,6 +13,7 @@ const addTodo = () => {
 </script>
 <template>
   <div>
+    <h2>Añadir Tarea</h2>
     <input v-model="newTodo" placeholder="Add new item" />
     <button @click="addTodo">Add</button>
   </div>
