@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from 'vue';
+import { store } from '../store';
 
 const newTodo = ref("");
 
 const addTodo = () => {
   if (newTodo.value.trim()) {
-    todos.value.push({ title: newTodo.value.trim(), done: false });
+    store.addTodoAction({ title: newTodo.value.trim(), done: false });
     newTodo.value = "";
   }
 };

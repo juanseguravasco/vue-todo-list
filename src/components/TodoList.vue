@@ -1,13 +1,9 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { store } from "../store/index.js";
 import TodoItem from "./TodoItem.vue";
 
-const todos = ref([
-  { id: 1, title: "Learn JavaScript", done: false  },
-  { id: 2, title: "Learn Vue", done: false  },
-  { id: 3, title: "Play around in JSFiddle", done: true  },
-  { id: 4, title: "Build something awesome", done: true  },
-]);
+const todos = computed(() => store.state.todos);
 </script>
 
 <template>

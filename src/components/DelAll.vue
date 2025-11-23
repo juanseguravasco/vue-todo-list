@@ -1,6 +1,8 @@
 <script setup>
+import { store } from '../store';
+
 const delTodos = () => {
-  todos.value = [];
+  store.clearTodosAction();
 };
 </script>
 

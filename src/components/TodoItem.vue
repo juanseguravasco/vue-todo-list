@@ -1,12 +1,13 @@
 <script setup>
 import { defineProps } from "vue";
+import { store } from "../store";
 
 const props = defineProps({
   item: Object,
 });
 
 const delTodo = () => {
-  todos.value.splice(index, 1);
+  store.removeTodoAction(props.item);
 };
 const toogleDone = () => {
   props.item.done = !props.item.done;
