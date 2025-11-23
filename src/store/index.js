@@ -1,26 +1,33 @@
 import { reactive } from "vue";
+import * as api from "../services/api";
 
 export const store = {
   debug: true,
   state: reactive({
-    todos: [
-      { id: 1, title: "Learn JavaScript", done: false },
-      { id: 2, title: "Learn Vue", done: false },
-      { id: 3, title: "Play around in JSFiddle", done: true },
-      { id: 4, title: "Build something awesome", done: true },
-    ],
+    todos: [],
   }),
-  addTodoAction(newTodo) {
+  async fetchTodosAction() {
+    if (this.debug) console.log("fetchTodosAction triggered");
+    this.state.todos = await api.fetchTodos();
+  },
+  async addTodoAction(newTodo) {
     if (this.debug) console.log("addTodoAction triggered with ", newTodo);
-    this.state.todos.push(newTodo);
+    const addedTodo = await api.addTodo(newTodo);
+    this.state.todos.push(addedTodo);
   },
-  removeTodoAction(todoToRemove) {
+  async removeTodoAction(todoIdToRemove) {
     if (this.debug)
-      console.log("removeTodoAction triggered with ", todoToRemove);
-    this.state.todos = this.state.todos.filter((todo) => todo !== todoToRemove);
+      console.log("removeTodoAction triggered with id ", todoIdToRemove);
+    await api.removeTodo(todoIdToRemove);
+    this.state.todos = this.state.todos.filter((todo) => todo.id !== todoIdToRemove);
   },
-  clearTodosAction() {
-    if (this.debug) console.log("clearTodosAction triggered");
-    this.state.todos = [];
-  },
+  async toggleDoneAction(todoId, done) {
+    if (this.debug)
+      console.log("toggleDoneAction triggered with id ", todoId, " done: ", done);
+    const updatedTodo =  await api.toggleTodoDone(todoId, done);
+    const index = this.state.todos.findIndex((todo) => todo.id === todoId);
+    if (index !== -1) {
+      this.state.todos[index] = updatedTodo;
+    }
+  }
 };

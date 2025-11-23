@@ -1,8 +1,15 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, onMounted } from "vue";
 import { store } from "../store/index.js";
 import TodoItem from "./TodoItem.vue";
 
+onMounted(async () => {
+  try {
+    await store.fetchTodosAction();
+  } catch (error) {
+    alert("Error fetching todos: " + error.message);
+  }
+});
 const todos = computed(() => store.state.todos);
 </script>
 

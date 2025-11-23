@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": "d530",
+      "title": "Learn JavaScript",
+      "done": true
+    },
+    {
+      "id": "3ad0",
+      "title": "Learn Vue",
+      "done": false
+    },
+    {
+      "id": "c215",
+      "title": "Play around in JSFiddle",
+      "done": false
+    },
+    {
+      "id": "8647",
+      "title": "Build something awesome",
+      "done": true
+    }
+  ]
+}

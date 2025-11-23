@@ -1,5 +1,4 @@
 <script setup>
-import DelAll from "./components/DelAll.vue";
 import AddItem from "./components/AddItem.vue";
 import TodoList from "./components/TodoList.vue";
 </script>
@@ -9,8 +8,6 @@ import TodoList from "./components/TodoList.vue";
     <h2>Cosas a hacer este año:</h2>
     <todo-list />
     <add-item />
-
-    <del-all />
   </div>
 </template>
 

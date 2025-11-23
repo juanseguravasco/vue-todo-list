@@ -7,10 +7,10 @@ const props = defineProps({
 });
 
 const delTodo = () => {
-  store.removeTodoAction(props.item);
+  store.removeTodoAction(props.item.id);
 };
-const toogleDone = () => {
-  props.item.done = !props.item.done;
+const toggleDone = () => {
+  store.toggleDoneAction(props.item.id, !props.item.done);
 };
 </script>
 <template>
@@ -23,7 +23,7 @@ const toogleDone = () => {
         {{ item.title }}
       </span>
     </label>
-    <button @click="toogleDone()">
+    <button @click="toggleDone()">
       {{ item.done ? "No Hecha" : "Hecha" }}
     </button>
     <button @click="delTodo()">Borrar</button>
